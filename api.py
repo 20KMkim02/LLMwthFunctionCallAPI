@@ -44,8 +44,16 @@ async def read_items(
     items_query = db.query(ItemDB)
     
     if query:
-        items_query = items_query.filter(ItemDB.Title.contains(query))  # Assuming 'name' is the searchable field
+        items_query = items_query.filter(ItemDB.Title.contains(query))
     
     items = items_query.all()
     return items
 
+@app.delete("/items/{item_id}")
+async def delete_item(item_id: int, db: Session = Depends(get_db)):
+    db_item = db.query(ItemDB).filter(ItemDB.id == item_id).first()
+    if db_item is None:
+        raise HTTPException(status_code=404, detail="Item not found")
+    db.delete(db_item)
+    db.commit()
+    return {"message": "Item deleted"}
