@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from .database import SessionLocal
+from database import SessionLocal
 #Step 3 : Pydantic Model
 
 #1Base

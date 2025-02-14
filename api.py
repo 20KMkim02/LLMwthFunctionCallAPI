@@ -2,9 +2,9 @@ from typing import List,Optional
 from fastapi import FastAPI ,Depends , HTTPException ,Query
 from sqlalchemy.orm import Session 
 
-from .schema import ItemResponse,ItemBase
-from .database import get_db, engine, Base
-from .model import ItemDB
+from schema import ItemResponse,ItemBase
+from database import get_db, engine, Base
+from model import ItemDB
 
 
 #Sync Schema -> สร้างฐานข้อมูล เทียบclass ORM กับ Database ถ้าตัวไหนหายไปจะได้สร้างรองรับไว้ก่อน
