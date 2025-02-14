@@ -1,8 +1,8 @@
-from typing import Union,List,Optional
+from typing import List,Optional
 from fastapi import FastAPI ,Depends , HTTPException ,Query
 from sqlalchemy.orm import Session 
 
-from .schema import ItemCreate, ItemResponse,ItemBase
+from .schema import ItemResponse,ItemBase
 from .database import get_db, engine, Base
 from .model import ItemDB
 
